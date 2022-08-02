@@ -11,7 +11,7 @@ function SignIn() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (userName !== "admin" && password !== "admin123") {
+    if (userName !== "admin" || password !== "admin123") {
       return;
     }
     handleAuthChange(true);

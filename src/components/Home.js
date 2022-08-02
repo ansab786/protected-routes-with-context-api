@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
+import { useCreateAuthStateContext } from "../ContextApi/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [data, setData] = useState();
+  const isAuthenticated = useCreateAuthStateContext();
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     const response = await axios.get("https://fakestoreapi.com/products");
@@ -14,6 +18,14 @@ function Home() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const handleClick = () => {
+    if (isAuthenticated) {
+      console.log("aa gya");
+      return navigate("/cart");
+    }
+    return navigate("/signin");
+  };
 
   return (
     <>
@@ -26,7 +38,7 @@ function Home() {
                 <img className="img" src={value.image} alt="imagee" />
                 <p>{value.title}</p>
                 <h1>Price: {value.price}</h1>
-                <button>Add to cart</button>
+                <button onClick={handleClick}>Add to cart</button>
               </div>
             );
           })}

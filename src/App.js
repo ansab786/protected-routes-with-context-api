@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Cart from "./components/Cart";
 import SignInRoute from "./routes/SignInRoute";
 import SignOutRoute from "./routes/SignOutRoute";
+import AuthProtectedRoute from "./routes/AuthProtectedRoute";
 
 function App() {
   return (
@@ -21,7 +22,14 @@ function App() {
             </SignInRoute>
           }
         />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={
+            <AuthProtectedRoute>
+              <Cart />
+            </AuthProtectedRoute>
+          }
+        />
         <Route path="/signout" element={<SignOutRoute />} />
       </Routes>
     </>

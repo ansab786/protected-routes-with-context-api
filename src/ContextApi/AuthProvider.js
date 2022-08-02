@@ -4,7 +4,7 @@ const createAuthStateContext = createContext(undefined);
 const createAuthDispatchContext = createContext(undefined);
 
 function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleAuthChange = (isAuthenticated) => {
     setIsAuthenticated(isAuthenticated);
