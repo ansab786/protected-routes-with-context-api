@@ -21,7 +21,6 @@ function Home() {
 
   const handleClick = () => {
     if (isAuthenticated) {
-      console.log("aa gya");
       return navigate("/cart");
     }
     return navigate("/signin");
@@ -29,7 +28,7 @@ function Home() {
 
   return (
     <>
-      <h1>Home</h1>
+      <h1>Products</h1>
       <div className="body">
         {data &&
           data.map((value, id) => {
@@ -37,8 +36,10 @@ function Home() {
               <div className="data" key={id}>
                 <img className="img" src={value.image} alt="imagee" />
                 <p>{value.title}</p>
-                <h1>Price: {value.price}</h1>
-                <button onClick={handleClick}>Add to cart</button>
+                <h2>Price: {value.price}</h2>
+                <button className="btn-add-to-cart" onClick={handleClick}>
+                  Add to cart
+                </button>
               </div>
             );
           })}

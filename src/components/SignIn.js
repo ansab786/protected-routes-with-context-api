@@ -15,7 +15,7 @@ function SignIn() {
       return;
     }
     handleAuthChange(true);
-    navigate("/");
+    navigate("/cart");
   };
   return (
     <>
@@ -35,7 +35,9 @@ function SignIn() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
-        <button onClick={handleClick}>Signin</button>
+        <button className="btn-sign-in" onClick={handleClick}>
+          Signin
+        </button>
       </div>
     </>
   );

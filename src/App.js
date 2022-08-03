@@ -5,8 +5,8 @@ import SignIn from "./components/SignIn";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import SignInRoute from "./routes/SignInRoute";
-import SignOutRoute from "./routes/SignOutRoute";
 import AuthProtectedRoute from "./routes/AuthProtectedRoute";
+import SignOut from "./components/SignOut";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
             </AuthProtectedRoute>
           }
         />
-        <Route path="/signout" element={<SignOutRoute />} />
+        <Route path="/signout" element={<SignOut />} />
       </Routes>
     </>
   );
